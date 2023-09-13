@@ -1,0 +1,625 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    color: #000;
+
+    /* Сглаживание шрифта */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px 0; 
+}
+
+/* Container */
+.container {
+    /* width: 100%; */
+    /* padding-left: 64px;
+    padding-right: 64px;
+    margin: 0 auto; */
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header.fixed {
+    background-color: #33598a;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transform: translate3d(0,0,0);
+}
+
+.header.fixed .header__img {
+    padding-bottom: 10px;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 38px 0;
+    
+}
+
+/* Nav */
+.nav {
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav__link {
+    margin-left: 50px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s linear;
+}
+
+.nav__link:first-child {
+    margin-left: 0;
+}
+
+.nav__link:hover {
+    opacity: 1;
+}
+
+.nav__link span {
+    display: none;
+}
+
+/* Intro */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 795px;
+    background: #31344e url("img/Livello\ 1.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.intro__inner {
+    padding-bottom: 91px;
+    text-align: center;
+}
+
+.intro__inner h2 p {
+   margin-bottom: 0;
+}
+
+.intro__title {
+    margin: 0 0 9px 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 60px;
+    color: #fff;
+    font-weight: 700; 
+    letter-spacing: 8px;
+    
+}
+
+.intro__subtitle {
+    margin: 0 auto;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+/* Products */
+.products {
+    background-color: #f5f6f7;
+    display: flex;
+    width: 100%; 
+}
+
+.products__block {
+    position: relative;
+    height: 143px;
+}
+
+.products__item   {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    width: 400px;
+    top:44%;
+    color:black; 
+    
+}
+.checkbox {
+    left: 31px;
+}
+
+.men,
+.women,
+.children {
+    font-size: 18px;
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+    vertical-align: top;
+    padding: 14px 40px;
+    top:35%;
+    right:0;
+    border-radius: 3px; /* Скругление границ кнопки */
+    border: 0; /*Убрали границу у btn*/
+   
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.2s linear;
+    background-color: #aa9b77;
+}
+
+/* Custom-checkbox */
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+  .custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+  .custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 2px solid #aa9b77;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+  .custom-checkbox:checked+label::before {
+    border-color: #aa9b77;
+    background-color: #aa9b77;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+  /* SeeAllProducts */
+.mens {
+    display: none;
+}
+.mens.active {
+    display: block;
+}
+.womens {
+    display: none;
+}
+.womens.active {
+    display: block;
+}
+.gender {
+    position: relative;
+    top: 50px;
+    width: 1150px;
+}
+
+.text {
+    position:absolute;
+    left: 33px;
+    top: -8px;
+    color: black;
+}
+  
+.womentext {  
+    left: 1200px;
+    text-transform: uppercase;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    right: 0;
+    left: 100px;  
+    top: 50%;  
+    background-color: #cccccc;
+    font-size: 0;
+}
+
+.linewomen {
+    left: 35px;
+}
+
+.slider {
+    position: relative;
+    display: block;
+    color: #aa9b77;
+    top: 100px;
+    text-align: right;
+    padding-bottom: 10px;
+}
+
+.slider span {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.span__toggle-prev1,
+.span__toggle-next1 {
+    cursor: pointer;
+}
+
+.span__toggle-prev2,
+.span__toggle-next2 {
+    cursor: pointer;
+}
+
+.slider--women {
+    padding-left: 35px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.slider--women span {
+    font-size: 16px;
+    font-weight: 700; 
+}
+
+/* clothes */
+.clothes {
+    width: 100%;
+    margin-top: 104px;
+}
+
+/* .slick-arrow {
+    display: block;
+    font-size: 0;
+    color:transparent;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    z-index: 1;
+    transform: translateY(-50%);
+} */
+
+/* .slick-arrow:focus {
+    outline: 0;
+} */
+
+/* .slick-arrow:after {
+    content:"";
+    display:block;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+} */
+
+/* .slick-prev {
+    left:0;
+    transform: rotate(-45deg);
+}
+
+.slick-next {
+    right:0;
+    transform: rotate(135deg);
+} */
+
+.clothes__items {
+    position: relative;
+    display: flex;
+    margin-left: 62px;
+    width: 323px;
+    height: 383px;
+    background-color:#f5f6f7;   
+}
+
+.clothes__items:first-child {
+    margin-left: 35px;
+}
+
+.size {
+    width: 100%;
+    position: relative;
+    left: 20px;
+    top:23px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 3;
+}
+
+.accordion__item.active
+.accordion__content {
+    display: inline-block;
+}
+
+.size__accordion {
+    position: absolute;
+    margin-left: 40px;
+    content:"";
+    display: flex;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    cursor: pointer;
+    top:8px;
+    z-index: 1000;
+    transform: translateY(-50%) rotate(135deg); 
+}
+
+.accordion__item.active
+.size__accordion {
+    transform: translateY(-50%) rotate(-45deg);
+    margin-top: 5px;
+}
+
+.accordion__content {
+    top:10px;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    display: none;
+    border: 1px solid black;
+    text-align: center;
+}
+.accordion__content p {
+    color:#000;
+    padding: 3px;
+    width: 40px;
+    margin: 0;
+    opacity: 0.6;
+}
+
+.accordion__content p:hover {
+    cursor: pointer;
+    background-color:#918363;
+    opacity: 1;
+    transition: opacity 0.1s linear;
+}
+
+
+.color {
+    opacity: 0;
+    display: flex;
+    justify-content: right;
+}
+
+.clothes__items:hover .color {
+    opacity: 1;
+} 
+
+.blue {
+    padding-top: 20px;
+    padding-right: 6px;
+}
+.yellow {
+    padding-top: 10px;
+    padding-right: 4px;
+}
+.black {
+    padding-top: 10px;
+    padding-right: 8px;
+}
+
+.shirt-img {
+    position: absolute;
+    top:40px;
+    left:165px;
+    
+}
+.shirt--img {
+    margin-top: 50px;
+}
+
+.shirt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(13%);
+}
+
+
+.model {
+    position: absolute;
+    bottom:10px;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+    color:#aa9b77;
+}
+
+.price {
+    position: absolute;
+    bottom:10px;
+    right: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: right; 
+    color:#424242;
+} 
+
+.clothes__items:hover {
+    border: 7px solid #aa9b77;
+}
+
+/* About */
+.about {
+    position: relative;
+    margin-top: 130px;
+    padding: 200px 0 200px 0;
+    background:#d2d3de url("/img/Rettangolo\ 11.png") center no-repeat;
+    -webkit-background-size:cover;
+    background-size: cover;
+}
+
+.about__item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 758px;
+    height: 258px;
+    border: 2px solid #918363;
+}
+
+.about__title {
+    position: absolute;
+    top: -15px;
+    width: 128px;
+    height: 28px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    z-index: 0;
+    color:#918363;
+    background: url("/img/Rettangolo\ 11.png") center no-repeat;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-text-container {
+    position: absolute;
+    top:35%;
+    width: 460px;
+    height: 90px;
+    text-align: center; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about__text {
+    position: absolute;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color:#424242;
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 72px;
+    background-color: #535253;
+}
+.footer__logo {
+    position: relative;
+    width: 420px;
+}
+.footer__img {
+    position: absolute;
+    top:36%;
+    left: 64px;
+}
+
+.footer__text {
+    position: absolute;
+    top:38%;
+    left: 113px;
+    font-size: 16px;
+    font-weight: 700;
+    color:#fff;
+}
+
+/* Footer-info */
+.footer-info {
+    display: flex;
+    align-items: center;
+    height: 350px;
+    background: url("/img/Rettangolo\ 13.png");
+}
+
+.footer-info__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#FFF;
+}
+.footer-info-left {
+    width: 310px;
+    color:#FFF;
+}
+
+.footer-info__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-info__text {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.footer-nav {
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer-nav__link {
+    margin-left: 50px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s linear;
+}
+
+.footer-nav__link:hover {
+    opacity: 1;
+}
+
+.footer-nav__text {
+    margin-top: -50px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 700;
+    color:#FFF;
+}
